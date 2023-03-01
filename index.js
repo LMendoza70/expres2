@@ -17,4 +17,4 @@ app.get("/",(req,res)=>{
 //coneccion
 mongoose.connect(process.env.mongodbUri).then(()=>console.log('Conectado a la BD'))
 .catch((error)=>console.error(error))
-app.listen(puerto,()=>console.log('conectado', puerto))
+app.listen(puerto,()=>console.log('conectado', puerto)) 
