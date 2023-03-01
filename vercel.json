@@ -1,0 +1,14 @@
+{
+    "version":2,
+    "bouils":[
+        {
+            "src":"./index.js",
+            "use":"@versel/node"
+        }
+    ],
+    "routes":[{
+        "src":"./(.*)",
+        "dest":"/"
+    }]
+
+}
