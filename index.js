@@ -10,7 +10,7 @@ const puerto= process.env.PORT || 9000
 //midleware 
 app.use(expres.json())
 app.use('/api',userRoutes)
-app.use('/api',moliendasRoutes)
+//app.use('/api',moliendasRoutes)
 //rutas
 app.get("/",(req,res)=>{
     res.send("welcome")
