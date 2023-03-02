@@ -6,13 +6,11 @@ const productoSquema=mongoose.Schema({
         required:true
     },
     presentacion: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Presentacions', // nombre de la colección de presentaciones
+        type:String,
         required: true,
     },
     variedad: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'varietals', // nombre de la colección de variedades
+        type: String,
         required: true,
     }
 
