@@ -2,6 +2,7 @@ const expres = require ('express')
 const mongoose =require('mongoose')
 require('dotenv').config()
 const userRoutes=require('./src/routes/user')
+const moliendasRoutes=require('./src/routes/molienda')
 
 const app=expres()
 const puerto= process.env.PORT || 9000
@@ -9,6 +10,7 @@ const puerto= process.env.PORT || 9000
 //midleware
 app.use(expres.json())
 app.use('/api',userRoutes)
+app.use('/api',moliendasRoutes)
 //rutas
 app.get("/",(req,res)=>{
     res.send("welcome")

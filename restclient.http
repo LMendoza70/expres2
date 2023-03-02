@@ -32,3 +32,11 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:9000/api/users/63fe44c4262e58bcea652f33 HTTP/1.1
+
+###
+POST https://catando-ando2.vercel.app/api/moliendas/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre":"Aeroprees"
+}
