@@ -10,15 +10,15 @@ routepr.post('/producto',(req,res)=>{
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-/*
-//obtener usuarios
-router.get('/users',(req,res)=>{
+
+//obtener producto
+routepr.get('/producto',(req,res)=>{
     esquema
     .find()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-
+/*
 //busca user
 router.get('/users/:id',(req,res)=>{
     const{id}=req.params;
