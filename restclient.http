@@ -49,6 +49,6 @@ Content-Type: application/json
 
 {
     "precio":"220",
-    "presentacion":"nseqNPqwAPCFMReOYYYh",
+    "presentacion":{"$oid":"6400de49d6f9148ef7853182"},
     "variedad":"utIbZZ7VvYGFLy6rBWM4"
 }
