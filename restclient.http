@@ -41,13 +41,20 @@ Content-Type: application/json
     "nombre":"En grano"
 }
 ###
-GET https://catando-ando2.vercel.app/api/presentacion HTTP/1.1
+GET https://catando-ando2.vercel.app/api/variedad HTTP/1.1
 
 ###
-POST https://catando-ando2.vercel.app/api/presentacion HTTP/1.1
+POST https://catando-ando2.vercel.app/api/variedad HTTP/1.1
 Content-Type: application/json
 
 {
-    "descripcion":"250 g",
-    "gramos":250
+    "nombre":"Café Typica- Cosautlán Veracruz",
+    "descripcion":"Café de especialidad tostado artesanalmente con finos granos selectos de Veracruz, México.",
+    "variedad":"Typica",
+    "puntiacion":"Café de 86 puntos SCA",
+    "productor":"Carlos Cadena, en colaboración con Chih Pin Chen (Taiwán)",
+    "finca":"Cosautlán, Veracruz",
+    "altura":"1350 msnm",
+    "proceso":"Proceso Natural",
+    "notas":"Notas a mango, caramelo, naranja y miel"
 }
