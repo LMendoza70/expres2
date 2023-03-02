@@ -10,7 +10,7 @@ routepr.post('/producto',(req,res)=>{
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-
+/*
 //obtener producto
 routepr.get('/producto',(req,res)=>{
     esquema
@@ -49,6 +49,6 @@ routepr.delete('/producto/:id',(req,res)=>{
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-
+*/
 
 module.exports=routepr
