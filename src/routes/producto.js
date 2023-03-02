@@ -15,12 +15,14 @@ routepr.post('/producto',(req,res)=>{
 routepr.get('/producto',(req,res)=>{
     esquema
     .find()
+    .populate('presentacion')
+    .populate('variedad')
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-/*
-//busca user
-router.get('/users/:id',(req,res)=>{
+
+//busca producto
+routepr.get('/producto/:id',(req,res)=>{
     const{id}=req.params;
     esquema
     .findById(id)
@@ -28,25 +30,25 @@ router.get('/users/:id',(req,res)=>{
     .catch((error)=>res.json({message:error}))
 })
 
-//actualizar usuario
-router.put('/users/:id',(req,res)=>{
+//actualizar producto
+routepr.put('/producto/:id',(req,res)=>{
     const{id}=req.params;
-    const{nombre,appaterno,apmaterno,email,password}=req.body
+    const{precio,presentacion,variedad}=req.body
 
     esquema
-    .updateOne({_id:id},{$set:{nombre,apmaterno,apmaterno,email,password}})
+    .updateOne({_id:id},{$set:{precio,presentacion,variedad}})
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
 
 //eliminar usuario
-router.delete('/users/:id',(req,res)=>{
+routepr.delete('/producto/:id',(req,res)=>{
     const{id}=req.params;
     esquema
     .deleteOne({_id:id})
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-*/
+
 
 module.exports=routepr
