@@ -1,24 +1,24 @@
 const express=require('express')
 const esquema=require('../models/molienda')
 
-const router=express.Router()
+const routerm=express.Router()
 
 //crear molienda
-router.post('/moliendas',(req,res)=>{
+routerm.post('/moliendas',(req,res)=>{
     const molienda= esquema(req.body)
     molienda.save()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-/*
-//obtener usuarios
-router.get('/users',(req,res)=>{
+
+//obtener moliendas
+routerm.get('/moliendas',(req,res)=>{
     esquema
     .find()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
-
+/*
 //busca user
 router.get('/users/:id',(req,res)=>{
     const{id}=req.params;
