@@ -7,7 +7,7 @@ const moliendasRoutes=require('./src/routes/molienda')
 const app=expres()
 const puerto= process.env.PORT || 9000
 
-//midleware
+//midleware 
 app.use(expres.json())
 app.use('/api',userRoutes)
 app.use('/api',moliendasRoutes)

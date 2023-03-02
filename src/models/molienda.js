@@ -7,4 +7,4 @@ const moliendaSquema=mongoose.Schema({
     }
 })
 
-module.exports=mongoose.model('Molienda',moliendaSquema)
+module.exports=mongoose.model('Molienda',moliendaSquema) 
