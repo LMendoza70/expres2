@@ -17,4 +17,4 @@ const productoSquema=mongoose.Schema({
 
 })
 
-module.exports=mongoose.model('Presentacion',productoSquema) 
+module.exports=mongoose.model('Producto',productoSquema) 
