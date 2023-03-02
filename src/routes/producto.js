@@ -1,5 +1,6 @@
 const express= require('express')
 const esquema= require('../models/producto')
+const objetid=require('mongoose').Types.ObjectId
 
 const routepr= express.Router()
 
@@ -7,11 +8,13 @@ const routepr= express.Router()
 routepr.post('/producto',(req,res)=>{
     const producto= new esquema({
         precio:req.body.precio,
-        presentacion:req.body.presentacion,
-        variedad:req.body.variedad
+        presentacion:new objetid(req.body.presentacion),
+        variedad:new objetid(req.body.variedad)
     }) 
     producto.save()
-    .then((data)=>res.json(data))
+    .then((data)=>{
+        res.json(data)
+    })
     .catch((error)=>res.status(500).json({message:error}))
 })
 
