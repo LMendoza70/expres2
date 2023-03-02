@@ -3,6 +3,7 @@ const mongoose =require('mongoose')
 require('dotenv').config()
 const userRoutes=require('./src/routes/user')
 const moliendasRoutes=require('./src/routes/molienda')
+const presentacionRoutes=require('./src/routes/presentacion')
 
 const app=expres()
 const puerto= process.env.PORT || 9000
@@ -11,6 +12,7 @@ const puerto= process.env.PORT || 9000
 app.use(expres.json())
 app.use('/api',userRoutes)
 app.use('/api',moliendasRoutes)
+app.use('/api',presentacionRoutes)
 //rutas
 app.get("/",(req,res)=>{
     res.send("welcome")

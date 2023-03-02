@@ -1,26 +1,26 @@
 const express=require('express')
-const esquema=require('../models/molienda')
+const esquema=require('../models/presentacion')
 
-const routerm=express.Router()
+const routerp=express.Router()
 
-//crear molienda
-routerm.post('/moliendas',(req,res)=>{
-    const molienda= esquema(req.body)
-    molienda.save()
+//crear presentacion
+routerp.post('/presentacion',(req,res)=>{
+    const presenta= esquema(req.body)
+    presenta.save()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
 
-//obtener moliendas
-routerm.get('/moliendas',(req,res)=>{
+//obtener presentacion
+routerp.get('/presentacion',(req,res)=>{
     esquema
     .find()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
 
-//busca molienda
-routerm.get('/moliendas/:id',(req,res)=>{
+//busca presentacion
+routerp.get('/presentacion/:id',(req,res)=>{
     const{id}=req.params;
     esquema
     .findById(id)
@@ -28,19 +28,19 @@ routerm.get('/moliendas/:id',(req,res)=>{
     .catch((error)=>res.json({message:error}))
 })
 
-//actualizar molienda
-routerm.put('/moliendas/:id',(req,res)=>{
+//actualizar presentacion
+routerp.put('/presentacion/:id',(req,res)=>{
     const{id}=req.params;
-    const{nombre}=req.body
+    const{nombre,gramos}=req.body
 
     esquema
-    .updateOne({_id:id},{$set:{nombre}})
+    .updateOne({_id:id},{$set:{nombre,gramos}})
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
 
-//eliminar molienda
-routerm.delete('/molienda/:id',(req,res)=>{
+//eliminar presentacion
+routerp.delete('/presentacion/:id',(req,res)=>{
     const{id}=req.params;
     esquema
     .deleteOne({_id:id})
@@ -48,4 +48,4 @@ routerm.delete('/molienda/:id',(req,res)=>{
     .catch((error)=>res.json({message:error}))
 })
 
-module.exports=routerm 
+module.exports=routerp 
