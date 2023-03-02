@@ -5,10 +5,14 @@ const routepr= express.Router()
 
 //crear un producto
 routepr.post('/producto',(req,res)=>{
-    const producto= esquema(req.body)
+    const producto= new esquema({
+        precio:req.body.precio,
+        presentacion:req.body.presentacion,
+        variedad:req.body.variedad
+    }) 
     producto.save()
     .then((data)=>res.json(data))
-    .catch((error)=>res.json({message:error}))
+    .catch((error)=>res.status(500).json({message:error}))
 })
 /*
 //obtener producto
