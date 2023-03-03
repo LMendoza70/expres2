@@ -7,16 +7,10 @@ const routepr= express.Router()
 
 //crear un producto
 routepr.post('/producto',(req,res)=>{
-    const producto= new esquema({
-        precio:req.body.precio,
-        presentacion:mongoose.Types.ObjectId(req.body.presentacion),
-        variedad:mongoose.Types.ObjectId(req.body.variedad)
-    }) 
+    const producto= esquema(req.body)
     producto.save()
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>res.status(500).json({message:error}))
+    .then((data)=>res.json(data))
+    .catch((error)=>res.json({message:error}))
 })
 
 //obtener producto

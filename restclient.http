@@ -49,6 +49,6 @@ Content-Type: application/json
 
 {
     "precio":"220",
-    "presentacion":"nseqNPqwAPCFMReOYYYh",
-    "variedad":"utIbZZ7VvYGFLy6rBWM4"
+    "presentacion":{"_id":"nseqNPqwAPCFMReOYYYh"},
+    "variedad":{"_id":"utIbZZ7VvYGFLy6rBWM4"}
 }
