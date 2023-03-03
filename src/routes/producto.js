@@ -11,6 +11,7 @@ routepr.post('/producto',(req,res)=>{
         presentacion:new objetid(req.body.presentacion),
         variedad:new objetid(req.body.variedad)
     }) 
+    alert(producto)
     producto.save()
     .then((data)=>{
         res.json(data)
