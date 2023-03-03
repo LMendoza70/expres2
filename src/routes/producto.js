@@ -8,10 +8,9 @@ const routepr= express.Router()
 routepr.post('/producto',(req,res)=>{
     const producto= new esquema({
         precio:req.body.precio,
-        presentacion:new objetid(req.body.presentacion),
-        variedad:new objetid(req.body.variedad)
+        presentacion:req.body.presentacion,
+        variedad:req.body.variedad
     }) 
-    alert(producto)
     producto.save()
     .then((data)=>{
         res.json(data)
