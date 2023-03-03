@@ -23,8 +23,8 @@ routepr.post('/producto',(req,res)=>{
 routepr.get('/producto',(req,res)=>{
     esquema
     .find()
-    .populate('presentacion')
-    .populate('variedad')
+    //.populate('presentacion')
+    //.populate('variedad')
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
 })
