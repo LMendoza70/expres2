@@ -35,7 +35,7 @@ routepr.get('/producto', (req, res) => {
       res.json(data);
     })
     .catch((error) => {
-      res.status(500).json({ message: error });
+      res.json({ message: error });
     });
   });
   
@@ -54,34 +54,26 @@ routepr.get('/producto/:id', (req, res) => {
       { $match: { _id: mongoose.Types.ObjectId(idProducto) } },
       { 
         $lookup: {
-            from: 'varietals',
-            nombre: 'nombre',
-            descripcion:'descripcion' ,
-            variedad:'variedad',
-            puntiacion:'puntuacion',
-            productor:'productor',
-            finca:'finca',
-            altura:'altura',
-            proceso:'proceso',
-            notas:'notas',
-            _idv: '_id',
-            as: 'variedad'
-        }
-      },
-      {
-        $lookup: {
-            from: 'presentacions',
-            descp: 'descripcion',
-            _idd: '_id',
-            as: 'presentacion'
-        }
+          from:'varietals',
+          localField:'variedad',
+          foreignField: '_id',
+          as: 'variedaddes'
       }
+    },
+    {
+      $lookup: {
+        from: 'presentacions',
+        localField: 'presentacion',
+        foreignField: '_id',
+        as: 'presentaciondes'
+      }
+    }
     ])
     .then((data) => {
       res.json(data);
     })
     .catch((error) => {
-      res.status(500).json({ message: error });
+      res.json({ message: error });
     });
   }); 
 /*routepr.get('/producto/:id',(req,res)=>{
