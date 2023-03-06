@@ -16,7 +16,7 @@ routepr.get('/producto', (req, res) => {
     esquema.aggregate([
       {
         $lookup: {
-            from:'variedad',
+            from:'varietals',
             localField:'variedad',
             foreignField: '_id',
             as: 'variedad'
@@ -24,7 +24,7 @@ routepr.get('/producto', (req, res) => {
       },
       {
         $lookup: {
-          from: 'presentacion',
+          from: 'presentacions',
           localField: 'presentacion',
           foreignField: '_id',
           as: 'presentacion'
