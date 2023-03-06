@@ -12,21 +12,93 @@ routepr.post('/producto',(req,res)=>{
 })
 
 //obtener producto
-routepr.get('/producto',(req,res)=>{
+routepr.get('/producto', (req, res) => {
+    esquema.aggregate([
+      {
+        $lookup: {
+        from: 'varietals',
+        nombre: 'nombre',
+        descripcion:'descripcion' ,
+        variedad:'variedad',
+        puntiacion:'puntuacion',
+        productor:'productor',
+        finca:'finca',
+        altura:'altura',
+        proceso:'proceso',
+        notas:'notas',
+        _idv: '_id',
+        as: 'variedad'
+        }
+      },
+      {
+        $lookup: {
+          from: 'presentacions',
+          descp: 'descripcion',
+          _idd: '_id',
+          as: 'presentacion'
+        }
+      }
+    ])
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: error });
+    });
+  });
+  
+/*routepr.get('/producto',(req,res)=>{
     esquema
     .find()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
-})
+})*/
 
 //busca producto
-routepr.get('/producto/:id',(req,res)=>{
+routepr.get('/producto/:id', (req, res) => {
+    const idProducto = req.params.id;
+  
+    esquema.aggregate([
+      { $match: { _id: mongoose.Types.ObjectId(idProducto) } },
+      { 
+        $lookup: {
+            from: 'varietals',
+            nombre: 'nombre',
+            descripcion:'descripcion' ,
+            variedad:'variedad',
+            puntiacion:'puntuacion',
+            productor:'productor',
+            finca:'finca',
+            altura:'altura',
+            proceso:'proceso',
+            notas:'notas',
+            _idv: '_id',
+            as: 'variedad'
+        }
+      },
+      {
+        $lookup: {
+            from: 'presentacions',
+            descp: 'descripcion',
+            _idd: '_id',
+            as: 'presentacion'
+        }
+      }
+    ])
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      res.status(500).json({ message: error });
+    });
+  }); 
+/*routepr.get('/producto/:id',(req,res)=>{
     const{id}=req.params;
     esquema
     .findById(id)
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}))
-})
+})*/
 
 //actualizar producto
 routepr.put('/producto/:id',(req,res)=>{
