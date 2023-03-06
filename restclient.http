@@ -48,7 +48,7 @@ POST https://catando-ando2.vercel.app/api/producto HTTP/1.1
 Content-Type: application/json
 
 {
-    "precio":"12",
+    "precio":"112",
     "presentacion":"6400de49d6f9148ef7853182",
     "variedad":"6400e8053bd6480dc680a52f"
 }
