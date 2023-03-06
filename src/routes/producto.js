@@ -19,7 +19,7 @@ routepr.get('/producto', (req, res) => {
             from:'varietals',
             localField:'variedad',
             foreignField: '_id',
-            as: 'variedad'
+            as: 'variedaddes'
         }
       },
       {
@@ -27,7 +27,7 @@ routepr.get('/producto', (req, res) => {
           from: 'presentacions',
           localField: 'presentacion',
           foreignField: '_id',
-          as: 'presentacion'
+          as: 'presentaciondes'
         }
       }
     ])
