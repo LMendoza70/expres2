@@ -21,12 +21,18 @@ routepr.post('/producto',(req,res)=>{
 
 //obtener producto
 routepr.get('/producto',(req,res)=>{
-    esquema
-    .find()
+    esquema.find()
     .populate('presentacions', 'descripcion')
     .populate('varietals','nombre descripcion variedad')
-    .then((data)=>res.json(data))
-    .catch((error)=>res.json({message:error}))
+    //.then((data)=>res.json(data))
+    //.catch((error)=>res.json({message:error}))
+    .exec((err,productos)=>{
+        if(err){
+            res.status(500).json({message:err})
+        }else{
+            res.json(productos)
+        }
+    })
 })
 
 //busca producto
