@@ -25,7 +25,7 @@ routepr.get('/producto', (req, res) => {
       {
         $lookup: {
           from: 'presentacions',
-          descp: 'presentacion',
+          localField: 'presentacion',
           foreignField: '_id',
           as: 'present'
         }
