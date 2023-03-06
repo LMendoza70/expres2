@@ -17,23 +17,15 @@ routepr.get('/producto', (req, res) => {
       {
         $lookup: {
             from:'varietals',
-        nombre: 'nombre',
-        descripcion:'descripcion' ,
-        variedad:'variedad',
-        puntiacion:'puntuacion',
-        productor:'productor',
-        finca:'finca',
-        altura:'altura',
-        proceso:'proceso',
-        notas:'notas',
-        foreignField: '_id',
-        as: 'variedad'
+            localField:'variedad',
+            foreignField: '_id',
+            as: 'variedad'
         }
       },
       {
         $lookup: {
           from: 'presentacions',
-          descp: 'descripcion',
+          descp: 'presentacion',
           foreignField: '_id',
           as: 'presentacion'
         }
